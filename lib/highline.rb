@@ -9,10 +9,17 @@ require 'highline/import'
 # as far as you are interested.
 # 
 
-say "Hello World!"
+say "Have you heard? My wife is pregnant!"
 
-company = ask("Company? ") do |question| 
-  question.default = "Google"
+choose do |menu|
+  menu.prompt = "What do you think the sex of my first child will be?"
+
+  menu.choice(:boy) { say("We'll see! I wonder if he'll look like me.") }
+  menu.choice(:girl) { say("We'll see! I wonder if she'll look like my wife.") }
 end
 
-say "You work for #{company}"
+babyname = ask("Any baby name ideas for me? ") do |question| 
+end
+
+say "#{babyname} Riviello, eh? I'll have to take that into consideration"
+

@@ -12,12 +12,19 @@ describe "Current Administration" do
     
     # Creating a new OpenStruct here
     administration = OpenStruct.new
+    cabinet = OpenStruct.new
     
     # Then you can assign any properties on the OpenStruct
     administration.president = "Barack Obama"
     
-    administration.vice_president = "Broseph Jiden"
+    administration.vice_president = "Joe Biden"
     
+    administration.first_lady = "Michelle Obama"
+
+    cabinet.state_department = "Hillary Clinton"
+
+    administration.cabinet = cabinet
+
     # This last line has `administration` so that it is returned as the subject
     administration
   end
@@ -40,14 +47,12 @@ describe "Current Administration" do
   #
   its(:president) { should == "Barack Obama" }
 
-
-  
   its(:first_lady) { should == "Michelle Obama" }
   
   its(:vice_president) { should == "Joe Biden" }
 
   describe "cabinet" do
-    
+
     it "should be present" do
     
       subject.should respond_to(:cabinet)
